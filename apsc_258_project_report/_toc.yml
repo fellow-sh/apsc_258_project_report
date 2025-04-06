@@ -2,9 +2,33 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: "00-intro"
+root: landing
 chapters:
-- file: "01-v3"
-- file: "02-v19"
-- file: "03-v27"
-- file: "04-v35"
+- file: "objectives"
+- file: "methodology"
+#  sections:
+#  - file: "data_collection"
+#  - file: "preprocessing"
+#  - file: "model_design"
+  sections:
+  - file: "version_3"
+  - file: "version_19"
+  - file: "version_27"
+  - file: "version_35"
+- file: "results"
+  sections:
+  - file: "evaluation"
+  - file: "visualization"
+- file: "conclusion"
+- file: "bibliography"
+#- file: "appendix"
+#  sections:
+#  - file: "references"
+#  - file: "acknowledgements"
+#  - file: "glossary"
+#  - file: "license"
+#  - file: "about"
+#  - file: "contributing"
+#  - file: "changelog"
+#  - file: "faq"
+

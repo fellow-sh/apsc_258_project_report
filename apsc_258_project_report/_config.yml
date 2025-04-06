@@ -14,7 +14,7 @@ logo                        : ""  # A path to the book logo
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: "off"
-  stderr_output: show
+  stderr_output: remove
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -22,10 +22,13 @@ latex:
     targetname: book.tex
 
 # Configure Sphinx to use the bibtex reference style
-bibtex_reference_style: author_year
 bibtex_bibfiles:
   - references.bib
 
+sphinx:
+  config:
+    bibtex_reference_style: author_year
+    
 # Information about where the book exists on the web
 repository:
   url: https://github.com/fellow-sh/apsc_258_project_report  # Online location of your book
@@ -35,5 +38,5 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  use_issues_button: true
+  use_issues_button: false
   use_repository_button: true
