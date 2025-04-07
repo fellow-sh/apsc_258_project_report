@@ -4,23 +4,13 @@
 format: jb-book
 root: landing
 chapters:
-- file: "objectives"
+- file: "introduction"
 - file: "methodology"
-#  sections:
-#  - file: "data_collection"
-#  - file: "preprocessing"
-#  - file: "model_design"
-  sections:
-  - file: "version_3"
-  - file: "version_19"
-  - file: "version_27"
-  - file: "version_35"
 - file: "results"
   sections:
   - file: "evaluation"
   - file: "visualization"
 - file: "conclusion"
-- file: "bibliography"
 #- file: "appendix"
 #  sections:
 #  - file: "references"

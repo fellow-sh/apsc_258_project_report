@@ -25,13 +25,13 @@ def main():
     train_dirs = list(Path.cwd().glob('**/train/'))
     test_dirs = list(Path.cwd().glob('**/test/'))
     
-    ## LOAD DATA ---------------------------------------------------------
+    ## LOAD DATA ---------------------------------------------------------------
 
     print("Loading data...")
     test_img, test_steer = load_all_data(test_dirs)
     train_img, train_steer = load_all_data(train_dirs)
 
-    ## PREPROCESSING DATA ---------------------------------------------------------
+    ## PREPROCESSING DATA ------------------------------------------------------
 
     print("Preprocessing data...")
     train_data, test_data = [], []
@@ -65,7 +65,8 @@ def main():
         )
         return model
     
-    ## TRAINING ---------------------------------------------------------
+    ## TRAINING ----------------------------------------------------------------
+
     print("Training model v3...")
     model_v3 = make_model(create_model_v3, model_v3_params, train_ds, test_ds)
     model_v3.save('model_v3.h5')
@@ -83,9 +84,6 @@ def main():
     model_v35.save('model_v35.h5')
     
     print("Training complete.")
-
-    ## EVALUATION ---------------------------------------------------------
-    print("Evaluating models...")
 
 
 def dataset_file_get_timestamp(file: Path):

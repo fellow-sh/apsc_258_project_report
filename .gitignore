@@ -73,6 +73,7 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+**_build/
 
 # IPython
 profile_default/
@@ -85,3 +86,10 @@ tf/
 # data
 **data*/
 **models*/
+
+# Windows filesystem management
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*Zone.Identifier

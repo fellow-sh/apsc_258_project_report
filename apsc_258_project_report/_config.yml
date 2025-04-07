@@ -18,6 +18,8 @@ execute:
 
 # Define the name of the latex output file for PDF builds
 latex:
+  latex_engine: xelatex  # The LaTeX engine to use for PDF builds
+  #use_jupyterbook_latex: true  # Use the default Jupyter Book LaTeX template
   latex_documents:
     targetname: book.tex
 
