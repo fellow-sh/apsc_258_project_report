@@ -7,9 +7,6 @@ chapters:
 - file: "introduction"
 - file: "methodology"
 - file: "results"
-  sections:
-  - file: "evaluation"
-  - file: "visualization"
 - file: "conclusion"
 #- file: "appendix"
 #  sections:

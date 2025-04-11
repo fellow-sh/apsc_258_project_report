@@ -3,6 +3,7 @@ import zipfile
 from pathlib import Path
 
 import cv2 as cv
+import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
 import tqdm
@@ -101,10 +102,8 @@ def load_data(directory: Path):
     for file_path in directory.glob('*.png'):
         image_paths.append(file_path)
 
-    # sort images by the timestamp in their filenames
     image_paths.sort(key=dataset_file_get_timestamp)
 
-    # Extract steering angles from filenames
     for path in image_paths:
         steering_angles.append(dataset_file_get_steering_angle(path))
         
@@ -141,6 +140,27 @@ def dataset_pipeline(features, labels, shuffle, *, batch_size=32,
     dataset = dataset.batch(batch_size)
     dataset = dataset.prefetch(buffer_size=5)
     return dataset
+
+
+def display_results(data, labels, results, names):
+    nimages = 8
+
+    imgs, angles = data[:nimages], labels[:nimages]
+    predictions = results[:, :nimages].squeeze()
+
+    nrows = int(np.ceil(nimages / 4))
+    ncols = min(4, nimages)
+    fig, axs = plt.subplots(nrows, ncols, figsize=(8, 3 * nrows))
+    for ax, img, angle, preds in zip(axs.flatten(), imgs, angles, predictions.T):
+        ax.axis('off')
+        ax.imshow(img)
+        title = f'Actual: {angle:.2f}°'
+        for pred, name in zip(preds, names):
+            title += f'\n{name}: {pred:.2f}°'
+        ax.set_title(title)
+    fig.suptitle('Training Data')
+    fig.tight_layout()
+    plt.show()
 
 
 def create_model_v3() -> models.Sequential:
